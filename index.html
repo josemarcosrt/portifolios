@@ -1,8 +1,260 @@
+<!DOCTYPE html>
 <html>
-<body>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* { box-sizing: border-box }
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+html, body { height: 100%; display: flex; flex-direction: column}
+header { background-color: red; }
+.space { flex: 1; }
+footer { background-color: blue; }
+
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 500px;
+  }
+}
+
+.card {
+  position: relative;
+  flex: 1 1 100%;
+  margin: 30px 0;
+  padding: 20px;
+  background: lighten( #f8f8f8, 3%);
+
+  @media screen and (min-width: 768px) {
+    flex-basis: calc(33.33% - (#{31 * 2} + #{20 * 2}));
+    margin: 0 31px;
+  }
+}
+
+
+
+.card__thumb {
+  overflow: hidden;
+}
+
+.card__img {
+  margin: (-10px) (-10px) 0;
+
+  @img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    vertical-align: middle;
+    box-sizing: border-box;
+  }
+}
+
+.card__desc {
+  margin-top: 20px;
+}
+
+.card__two .card__img {
+  padding: 20px;
+}
+
+.card__one {
+  transition: transform .5s;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 2s cubic-bezier(.185, .94, .54, 1);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .15);
+    content: '';
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale3d(1.006, 1.006, 1);
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+  
+
+.menu {
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+
+.menu a {
+  background-color: #e5e5e5;
+  padding: 8px;
+  margin-top: 7px;
+  display: block;
+  width: 100%;
+  color: black;
+}
+
+.main {
+  float: left;
+  width: 60%;
+  padding: 0 20px;
+}
+
+.right {
+  background-color: #e5e5e5;
+  float: left;
+  width: 20%;
+  padding: 15px;
+  margin-top: 7px;
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+ 
+}
+
+.flex-item-left {
+  background-color: #f1f1f1;
+  padding: 10px;
+  flex: 50%;
+}
+
+.flex-item-right {
+  background-color: dodgerblue;
+  padding: 10px;
+  flex: 50%;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #9933cc;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0;
+}
+
+.menu li {
+  padding: 8px;
+  margin-bottom: 4px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu li:hover {
+  background-color: #0099cc;
+}
+
+
+</style>
+</head>
+<body style="font-family:Verdana;color:#aaaaaa;">
+
+    <div style="background-color:#A0522D;padding:1px;text-align:center; height:50px">
+      <h6>Portifolios</h6>
+    </div>
+
+    <div style="overflow:auto">
+
+        <div class="menu">
+
+            <ul>
+            <li href="#">Link 1</li>
+            <li href="#">Link 1</li>
+            <li href="#">Link 1</li>
+            <li href="#">Link 1</li>
+            </ul>
+        </div>
+    
+    
+
+        <div class="main">
+
+            <div class="flex-container">
+        
+                <div class="card card__one">
+                    <figure class="card__img">
+                        <img src="https://res.cloudinary.com/jasonheecs/image/upload/v1479748567/card-hover/photo-1.jpg" width="180" height="180" />
+                    </figure> 
+                </div>
+                
+                
+                <div class="card card__one">
+                    <figure class="card__img">
+                        <img src="https://res.cloudinary.com/jasonheecs/image/upload/v1479748567/card-hover/photo-1.jpg" width="180" height="180" />
+                    </figure>
+                </div>
+            
+            </div>
+            
+        </div>
+
+    </div>
+   
+
+    <div class='space'></div>
+    <div class="footer" style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">© copyright José Marcos</div>
+
+
 
 </body>
 </html>
